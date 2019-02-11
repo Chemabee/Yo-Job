@@ -17,4 +17,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="search_a_job">Search a job</string>
+    <string name="post_a_job">Post a job</string>
 </resources>

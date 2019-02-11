@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground1" >
+    android:background="@color/colorBackground1"
+    tools:context=".LoginActivity" >
 
     <TextView
         android:id="@+id/logo"
@@ -80,6 +82,7 @@
         android:padding="8dp"
         android:text="@string/log_in"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
