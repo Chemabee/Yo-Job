@@ -30,4 +30,6 @@
     <string name="post">Post</string>
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
+    <string name="post">Post</string>
+    <string name="search">Search</string>
 </resources>
