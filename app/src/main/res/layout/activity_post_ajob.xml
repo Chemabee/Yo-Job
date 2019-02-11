@@ -5,8 +5,7 @@
     android:id="@+id/activity_post_job"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient-2"
-    tools:background="@drawable/gradient-2"
+    android:background="@color/colorBackground1"
     tools:context=".PostAJobActivity">
 
     <TextView
