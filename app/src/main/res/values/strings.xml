@@ -22,6 +22,9 @@
     <string name="birth">Day of Birth</string>
     <string name="surname">Surname</string>
     <string name="name">Name</string>
+    <string name="salary_hour">Salary (£/hour)</string>
+    <string name="location">Location</string>
+    <string name="duration_hours">Duration (Hours)</string>
     <string name="jobs">Jobs</string>
     <string name="search">Search</string>
     <string name="post">Post</string>
