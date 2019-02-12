@@ -62,6 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/salary_hour"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
