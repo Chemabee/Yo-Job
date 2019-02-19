@@ -27,7 +27,7 @@
         android:textSize="80sp"
         android:gravity="center"
         app:fontFamily="@font/kite_one"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/surname_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
