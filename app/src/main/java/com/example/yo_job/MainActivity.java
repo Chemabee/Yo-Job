@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        */
     }
     //Metodo Log In
     public void login(View v){
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Intent signupI = new Intent(this, SignupActivity.class);
         startActivity(signupI);
     }
-
+    /*
     private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -83,4 +84,5 @@ public class MainActivity extends AppCompatActivity {
         Intent profile = new Intent(this, ProfileActivity.class);
         startActivity(profile);
     }
+    */
 }
