@@ -1,7 +1,9 @@
 package com.example.yo_job;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,7 +11,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent login = new Intent(MainActivity.java, SignupActivity.java);
-        startActivity(login);
+    }
+    //Metodo Log In
+    public void login(View v){
+        Intent loginI = new Intent(this,LoginActivity.class);
+        startActivity(loginI);
+    }
+    //Metodo Sign up
+    public void signup(View v){
+        Intent signupI = new Intent(this, SignupActivity.class);
+        startActivity(signupI);
     }
 }
