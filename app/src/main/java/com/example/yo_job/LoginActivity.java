@@ -3,6 +3,7 @@ package com.example.yo_job;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -61,6 +62,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    public void login (View v){
+        Intent login = new Intent(this, JobsActivity.class);
+        startActivity(login);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

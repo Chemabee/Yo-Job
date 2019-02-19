@@ -83,6 +83,7 @@
         android:layout_marginRight="76dp"
         android:background="@drawable/button_shape"
         android:gravity="center"
+        android:onClick="login"
         android:padding="8dp"
         android:text="@string/log_in"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"

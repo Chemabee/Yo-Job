@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent login = new Intent(MainActivity.java, SignupActivity.java);
+        Intent login = new Intent(this, SignupActivity.java);
         startActivity(login);
     }
 }
