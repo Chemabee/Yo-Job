@@ -20,173 +20,157 @@
         android:text="@string/app_name"
         android:textSize="80sp"
         app:fontFamily="@font/kite_one"
-        app:layout_constraintBottom_toTopOf="@+id/name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/sign_up"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
-        android:layout_marginBottom="51dp"
-        android:background="@drawable/button_shape"
-        android:gravity="center"
-        android:onClick="register"
-        android:padding="8dp"
-        android:text="@string/sign_up"
-        android:textSize="24sp"
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeatPass_input" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/name_input"
-        android:layout_width="300dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/surname_input"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1.0">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/name_textbox"
-            android:layout_width="300dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+            android:orientation="vertical"
+            android:>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/surname_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/birth_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_input">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/name_input"
+                android:layout_width="300dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:background="@drawable/input_text_box" >
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/surname_textbox"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/surname"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/name_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/birth_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/email_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname_input">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/surname_input"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:background="@drawable/input_text_box" >
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/birth_textbox"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/birth"
-            android:inputType="date" />
-    </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/surname_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/surname"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/email_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/password_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birth_input">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/birth_input"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:background="@drawable/input_text_box" >
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/email_textbox"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/e_mail"
-            android:inputType="textEmailAddress" />
-    </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/birth_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/birth"
+                    android:inputType="date" />
+            </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/repeatPass_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_input">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/email_input"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:background="@drawable/input_text_box" >
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/password_textbox"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/email_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/e_mail"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
 
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/password_input"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:background="@drawable/input_text_box" >
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/repeatPass_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/input_text_box"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_input">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/repeatPassword_textbox"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="RepeatPassword"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/repeatPass_input"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/input_text_box">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/repeatPassword_textbox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="RepeatPassword"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/sign_up"
+                android:layout_width="260dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="76dp"
+                android:layout_marginRight="76dp"
+                android:layout_marginBottom="51dp"
+                android:background="@drawable/button_shape"
+                android:gravity="center"
+                android:onClick="register"
+                android:padding="8dp"
+                android:text="@string/sign_up"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
