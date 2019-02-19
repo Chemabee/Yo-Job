@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login2"></activity>
+            android:label="title_activity_login2"></activity>
         <activity android:name=".JobDescriptionActivity" />
         <activity android:name=".MessagesActivity" />
         <activity android:name=".ProfileActivity" />
