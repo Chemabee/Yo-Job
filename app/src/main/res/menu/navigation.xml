@@ -4,26 +4,31 @@
     <item
         android:id="@+id/navigation_jobs"
         android:icon="@drawable/ic_briefcase_black_24dp"
+        android:onClick="jobsNavBar"
         android:title="@string/jobs" />
 
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search_black_24dp"
+        android:onClick="searchNavBar"
         android:title="@string/search" />
 
     <item
         android:id="@+id/navigation_post"
         android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:onClick="postNavBar"
         android:title="@string/post" />
 
     <item
         android:id="@+id/navigation_messages"
         android:icon="@drawable/ic_message_black_24dp"
+        android:onClick="messagesNavBar"
         android:title="@string/messages" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_outline_black_24dp"
+        android:onClick="profileNavBar"
         android:title="@string/profile" />
 
 </menu>

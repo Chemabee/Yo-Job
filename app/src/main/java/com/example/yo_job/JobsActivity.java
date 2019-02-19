@@ -23,4 +23,29 @@ public class JobsActivity extends AppCompatActivity {
         Intent postI = new Intent(this, PostAJobActivity.class);
         startActivity(postI);
     }
+
+    public void jobsNavBar (View v) {
+        Intent jobs = new Intent(this, JobsActivity.class);
+        startActivity(jobs);
+    }
+
+    public void searchNavBar (View v) {
+        Intent search = new Intent(this, SearchActivity.class);
+        startActivity(search);
+    }
+
+    public void postNavBar (View v) {
+        Intent post = new Intent(this, PostAJobActivity.class);
+        startActivity(post);
+    }
+
+    public void messagesNavBar (View v) {
+        Intent messages = new Intent(this, MessagesActivity.class);
+        startActivity(messages);
+    }
+
+    public void profileNavBar (View v) {
+        Intent profile = new Intent(this, ProfileActivity.class);
+        startActivity(profile);
+    }
 }
