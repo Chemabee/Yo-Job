@@ -68,6 +68,7 @@
 
     <TextView
         android:id="@+id/textView6"
+        android:background="@drawable/input_text_box"
         android:layout_width="376dp"
         android:layout_height="222dp"
         android:layout_marginStart="16dp"
@@ -77,7 +78,6 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="2dp"
-        android:background="@drawable/input_text_box"
         android:text="Description of the job"
         android:textColor="@color/black"
         android:textStyle="italic"
@@ -93,8 +93,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="533dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:srcCompat="@tools:sample/avatars[13]" />
 
     <ImageView
@@ -170,5 +173,21 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/input_text_box"
+        android:text="Apply!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </android.support.constraint.ConstraintLayout>

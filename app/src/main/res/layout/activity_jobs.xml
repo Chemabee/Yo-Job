@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".SignupActivity" >
+    tools:context=".JobsActivity" >
 
     <TextView
         android:id="@+id/logo"
@@ -39,6 +39,7 @@
         android:padding="8dp"
         android:text="@string/search_a_job"
         android:textSize="24sp"
+        android:onClick="search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +59,7 @@
         android:padding="8dp"
         android:text="@string/post_a_job"
         android:textSize="24sp"
+        android:onClick="post"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
