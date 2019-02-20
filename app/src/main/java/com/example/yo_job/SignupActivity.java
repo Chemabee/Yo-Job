@@ -1,6 +1,7 @@
 package com.example.yo_job;
 
 import android.content.Intent;
+import android.icu.text.DateFormat;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,20 +18,30 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword, inputName, inputSurname, inputBirth;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         //PROBLEMA TODO
         auth = FirebaseAuth.getInstance();
+
+        //Data not necessary for authentication
+        inputName = (EditText) findViewById(R.id.name_textbox);
+        inputSurname = (EditText) findViewById(R.id.surname_textbox);
+        inputBirth = (EditText) findViewById(R.id.birth_textbox);
 
         btnSignUp = (Button) findViewById(R.id.sign_up);
         inputEmail = (EditText) findViewById(R.id.email_textbox);
@@ -40,6 +51,11 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Data not necessary for athentufication
+                String name =  inputName.getText().toString().trim();
+                String surname =  inputSurname.getText().toString().trim();
+                String birth =  inputBirth.getText().toString().trim();
 
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
@@ -82,7 +98,6 @@ public class SignupActivity extends AppCompatActivity {
                                 }
                             }
                         });
-
             }
         });
     }
