@@ -12,7 +12,7 @@ public class JobsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobs);
     }
-    /*
+
     //Search a Job button
     public void search (View v){
         Intent searchI = new Intent(this, SearchActivity.class);
@@ -23,5 +23,5 @@ public class JobsActivity extends AppCompatActivity {
     public void post (View v){
         Intent postI = new Intent(this, PostAJobActivity.class);
         startActivity(postI);
-    }*/
+    }
 }

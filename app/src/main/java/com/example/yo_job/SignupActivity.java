@@ -35,7 +35,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up);
         inputEmail = (EditText) findViewById(R.id.email_textbox);
         inputPassword = (EditText) findViewById(R.id.password_textbox);
-        EditText rePass = (EditText) findViewById(R.id.repeatPassword_textbox);
+        final EditText rePass = (EditText) findViewById(R.id.repeatPassword_textbox);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +43,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                String rePassword = rePass.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -56,6 +57,10 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (password.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!password.equals(rePassword)) {
+                    Toast.makeText(getApplicationContext(), "Password not matching, check both passwords!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
