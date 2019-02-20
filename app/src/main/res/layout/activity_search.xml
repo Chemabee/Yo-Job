@@ -78,6 +78,7 @@
         android:layout_marginBottom="120dp"
         android:background="@drawable/button_shape"
         android:gravity="center"
+        android:onClick="search"
         android:padding="8dp"
         android:text="@string/search"
         android:textSize="24sp"
