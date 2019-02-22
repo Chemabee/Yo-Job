@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
                 //Saving date
                 date.clear();
                 date.add(dayOfMonth);
-                date.add(month);
+                date.add(month+1);
                 date.add(year);
             }
         });

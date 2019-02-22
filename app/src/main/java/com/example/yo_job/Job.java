@@ -17,4 +17,16 @@ public class Job {
         this.location = location;
         this.description = description;
     }
+
+    public String getDate() { return date; }
+
+    public String getTitle() { return title; }
+
+    public String getSalary() { return salary; }
+
+    public String getDuration() { return duration; }
+
+    public String getLocation() { return location; }
+
+    public String getDescription() { return description; }
 }
