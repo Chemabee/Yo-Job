@@ -6,20 +6,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ListOfJobsActivity extends AppCompatActivity {
 
     private int salary;
     private int[] date;
+
+    private DatabaseReference myRef;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_jobs);
 
+        myRef = database.getReference();
+
         //Getting Intent
         Intent from = getIntent();
-        Toast.makeText(this, from.getStringExtra("date"), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, from.getStringExtra("salary"), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Looking for date: " +from.getStringExtra("date"), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Looking for salary: "+from.getStringExtra("salary"), Toast.LENGTH_LONG).show();
 
     }
 }
