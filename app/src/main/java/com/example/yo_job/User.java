@@ -1,9 +1,5 @@
 package com.example.yo_job;
 
-import android.provider.ContactsContract;
-
-import java.util.Date;
-
 public class User {
 
     private String name;

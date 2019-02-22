@@ -104,9 +104,4 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void register (View view){
-        Intent i = new Intent (this, JobsActivity.class);
-        startActivity(i);
-    }
 }
