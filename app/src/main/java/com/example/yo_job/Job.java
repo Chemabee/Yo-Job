@@ -1,7 +1,5 @@
 package com.example.yo_job;
 
-import java.util.LinkedList;
-
 public class Job {
 
     private String date;
