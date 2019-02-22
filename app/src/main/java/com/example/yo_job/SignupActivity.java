@@ -21,19 +21,25 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword, inputName, inputSurname, inputBirth;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private FirebaseAuth auth;
-    private DatabaseReference mDatabase;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.setValue("Hello, test!");
 
         //PROBLEMA TODO
         auth = FirebaseAuth.getInstance();
@@ -53,11 +59,11 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Data not necessary for athentufication
-                String name =  inputName.getText().toString().trim();
-                String surname =  inputSurname.getText().toString().trim();
-                String birth =  inputBirth.getText().toString().trim();
+                final String name =  inputName.getText().toString().trim();
+                final String surname =  inputSurname.getText().toString().trim();
+                final String birth =  inputBirth.getText().toString().trim();
 
-                String email = inputEmail.getText().toString().trim();
+                final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 String rePassword = rePass.getText().toString().trim();
 
@@ -93,6 +99,12 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    System.out.println("Empezando a crear usuario");
+                                    User u = new User(name,surname,birth,email,"10/10/1998");
+                                    System.out.println("Subiendo");
+                                    databaseReference.child("Users").child(u.getName()).setValue(u);
+
+
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();
                                 }

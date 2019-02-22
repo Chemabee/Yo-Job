@@ -19,4 +19,24 @@ public class User {
         this.email = email;
         this.member_since = member_since;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getDate_of_birth() {
+        return date_of_birth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMember_since() {
+        return member_since;
+    }
 }
