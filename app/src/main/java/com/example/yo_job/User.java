@@ -10,14 +10,12 @@ public class User {
     private String surname;
     private String date_of_birth;
     private String email;
-    private String member_since;
 
-    public User(String name, String surname, String date_of_birth, String email, String member_since) {
+    public User(String name, String surname, String date_of_birth, String email) {
         this.name = name;
         this.surname = surname;
         this.date_of_birth = date_of_birth;
         this.email = email;
-        this.member_since = member_since;
     }
 
     public String getName() {
@@ -34,9 +32,5 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getMember_since() {
-        return member_since;
     }
 }

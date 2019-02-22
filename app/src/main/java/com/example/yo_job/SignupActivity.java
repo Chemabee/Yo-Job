@@ -40,9 +40,7 @@ public class SignupActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Users");
 
-        usersRef = databaseReference.child("Users");
 
-        //PROBLEMA TODO
         auth = FirebaseAuth.getInstance();
 
         //Data not necessary for authentication
@@ -101,24 +99,14 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     System.out.println("Empezando a crear usuario");
-                                    User u = new User(name,surname,birth,email,"10/10/1998");
+                                    User u = new User(name,surname,birth,email);
                                     System.out.println("Subiendo");
-                                    databaseReference.child("Users").child(u.getName()).setValue(u);
-
-
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    databaseReference.child(u.getName()).setValue(u);
+                                    startActivity(new Intent(SignupActivity.this, JobsActivity.class));
                                     finish();
                                 }
                             }
                         });
-
-
-                Map<String, User> users = new HashMap<>();
-                users.put("josemaria", new User("Jose", "Maria", "23/10/1998", "jose@maria.com", "20/02/2019"));
-
-                usersRef.setValue(users);
-
-                //usersRef.child("josemaria").setValue(new User("Jose", "Maria", "23/10/1998", "jose@maria.com", "20/02/2019"));
             }
         });
     }
