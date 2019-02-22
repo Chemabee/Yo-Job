@@ -9,6 +9,7 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 
 import java.util.Calendar;
+import java.util.LinkedList;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -16,14 +17,16 @@ public class SearchActivity extends AppCompatActivity {
     private EditText salaryV;
     private int salary;
 
-    private int[] date;
+    private LinkedList<Integer> date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         calendarV = findViewById(R.id.searchCalendar);
-        salaryV = findViewById(R.id.salaryTextbox);
+        salaryV = findViewById(R.id.salaryInput);
+
+        date = new LinkedList<>();
 
         calendarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -31,20 +34,21 @@ public class SearchActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 //Saving date
-                date[0] = dayOfMonth;
-                date[1] = month;
-                date[2] = year;
+                date.clear();
+                date.add(dayOfMonth);
+                date.add(month);
+                date.add(year);
             }
         });
     }
 
     public void search (View v) {
-        salary = Integer.parseInt(salaryV.toString());
+        /*salary = Integer.parseInt(salaryV.toString());*/
 
         Intent s = new Intent(this, ListOfJobsActivity.class);
         //Inserting data into Intent
-        s.putExtra("salary",salary);
-        s.putExtra("date",date);
+        s.putExtra("salary",salaryV.getText().toString());
+        s.putExtra("date",date.toString());
         startActivity(s);
     }
 
