@@ -14,6 +14,10 @@ public class ListOfJobsActivity extends AppCompatActivity {
     private int salary;
     private int[] date;
 
+    /*
+    https://www.youtube.com/watch?v=b_tz8kbFUsU
+    * */
+
     private DatabaseReference myRef;
     FirebaseDatabase database;
 

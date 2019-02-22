@@ -32,7 +32,7 @@ public class PostAJobActivity extends AppCompatActivity {
         databaseReference = mDatabase.getReference("Jobs");
 
         calendarV = findViewById(R.id.calendarPostView);
-        inputTitle = (EditText) findViewById(R.id.titleTextbox);
+        inputTitle = (EditText) findViewById(R.id.salaryTextbox);
         inputSalary = (EditText) findViewById(R.id.salaryTextbox);
         inputDuration = (EditText) findViewById(R.id.durationTextbox);
         inputLocation = (EditText) findViewById(R.id.locationTextbox);
