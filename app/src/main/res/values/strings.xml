@@ -35,4 +35,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="repeat_password">Repeat Password</string>
+    <string name="brief_description">Brief description</string>
+    <string name="title">Title</string>
 </resources>

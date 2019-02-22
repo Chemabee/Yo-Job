@@ -21,10 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword, inputName, inputSurname, inputBirth;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
+    private Button btnSignUp;
     private FirebaseAuth auth;
     private FirebaseDatabase mDatabase;
-    private DatabaseReference databaseReference, usersRef;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
