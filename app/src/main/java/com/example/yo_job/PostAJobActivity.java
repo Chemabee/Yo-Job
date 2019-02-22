@@ -32,34 +32,41 @@ public class PostAJobActivity extends AppCompatActivity {
         databaseReference = mDatabase.getReference("Jobs");
 
         calendarV = findViewById(R.id.calendarPostView);
-        inputTitle = (EditText) findViewById(R.id.titleTextbox);
-        inputSalary = (EditText) findViewById(R.id.salaryTextbox);
-        inputDuration = (EditText) findViewById(R.id.durationTextbox);
-        inputLocation = (EditText) findViewById(R.id.locationTextbox);
-        inputDescription = (EditText) findViewById(R.id.descriptionTextbox);
+        inputTitle = (EditText) findViewById(R.id.titleInput);
+        inputSalary = (EditText) findViewById(R.id.salaryInput);
+        inputDuration = (EditText) findViewById(R.id.durationInput);
+        inputLocation = (EditText) findViewById(R.id.locationInput);
+        inputDescription = (EditText) findViewById(R.id.descriptionInput);
+
+        btnPostJob = (Button) findViewById(R.id.postBtn);
+        date = new LinkedList<>();
+
+        calendarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                //Saving date
+                date.clear();
+                date.add(dayOfMonth);
+                date.add(month);
+                date.add(year);
+            }
+        });
 
         btnPostJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                calendarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-                    @Override
-                    public void onSelectedDayChange(CalendarView view, int year, int month,
-                                                    int dayOfMonth) {
-                        //Saving date
-                        date.add(dayOfMonth);
-                        date.add(month);
-                        date.add(year);
-                    }
-                });
                 final String title = inputTitle.getText().toString().trim();
-                final float salary = Integer.parseInt(inputSalary.toString());
-                final float duration = Integer.parseInt(inputDuration.toString());
+                final String salary = inputSalary.getText().toString().trim();
+                final String duration = inputDuration.getText().toString().trim();
                 final String location = inputLocation.getText().toString().trim();
                 final String description = inputDescription.getText().toString().trim();
 
-                Job j = new Job(date, title, salary, duration, location, description);
-                databaseReference.child(String.valueOf(new Random())).setValue(j);
+                final String dateJob = date.get(0).toString() + "/" + date.get(1).toString() + "/" + date.get(2).toString();
+
+                Job j = new Job(dateJob, title, salary, duration, location, description);
+                databaseReference.child(title).setValue(j);
                 startActivity(new Intent(PostAJobActivity.this, JobsActivity.class));
             }
         });
