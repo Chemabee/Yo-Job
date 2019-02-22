@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private FirebaseAuth auth;
     private FirebaseDatabase mDatabase;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference, usersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,9 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         mDatabase = FirebaseDatabase.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        databaseReference.setValue("Hello, test!");
+        databaseReference = mDatabase.getReference("Users");
+
+        usersRef = databaseReference.child("Users");
 
         //PROBLEMA TODO
         auth = FirebaseAuth.getInstance();
@@ -110,6 +111,14 @@ public class SignupActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+
+                Map<String, User> users = new HashMap<>();
+                users.put("josemaria", new User("Jose", "Maria", "23/10/1998", "jose@maria.com", "20/02/2019"));
+
+                usersRef.setValue(users);
+
+                //usersRef.child("josemaria").setValue(new User("Jose", "Maria", "23/10/1998", "jose@maria.com", "20/02/2019"));
             }
         });
     }
