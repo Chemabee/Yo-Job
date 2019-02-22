@@ -26,7 +26,7 @@ public class SearchActivity extends AppCompatActivity {
 
         calendarV = findViewById(R.id.searchCalendar);
         salaryV = findViewById(R.id.salaryInput);
-        titleV = findViewById(R.id.titleInput);
+/*        titleV = findViewById(R.id.titleInput);*/
         date = new LinkedList<>();
 
         calendarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -48,7 +48,7 @@ public class SearchActivity extends AppCompatActivity {
         //Inserting data into Intent
         s.putExtra("salary",salaryV.getText().toString());
         s.putExtra("date",date.toString());
-        s.putExtra("title",titleV.getText().toString());
+/*        s.putExtra("title",titleV.getText().toString());*/
         startActivity(s);
     }
 

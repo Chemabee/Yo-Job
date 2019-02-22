@@ -10,10 +10,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ListOfJobsActivity extends AppCompatActivity {
-
-    private int salary;
-    private int[] date;
-
     /*
     https://www.youtube.com/watch?v=b_tz8kbFUsU
     * */
@@ -26,12 +22,14 @@ public class ListOfJobsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_jobs);
 
+        database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
 
         //Getting Intent
         Intent from = getIntent();
         Toast.makeText(this, "Looking for date: " +from.getStringExtra("date"), Toast.LENGTH_LONG).show();
         Toast.makeText(this, "Looking for salary: "+from.getStringExtra("salary"), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Looking for title: "+from.getStringExtra("title"), Toast.LENGTH_LONG).show();
 
     }
 }
