@@ -66,7 +66,9 @@ public class PostAJobActivity extends AppCompatActivity {
                 final String dateJob = date.get(0).toString() + "/" + date.get(1).toString() + "/" + date.get(2).toString();
 
                 Job j = new Job(dateJob, title, salary, duration, location, description);
-                databaseReference.child(title).setValue(j);
+                /*databaseReference.child(title).setValue(j);*/
+                DatabaseReference pushedPostRef = databaseReference.push();
+                String postId = pushedPostRef.getKey();
                 startActivity(new Intent(PostAJobActivity.this, JobsActivity.class));
             }
         });

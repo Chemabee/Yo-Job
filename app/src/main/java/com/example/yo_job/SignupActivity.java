@@ -95,7 +95,10 @@ public class SignupActivity extends AppCompatActivity {
                                     System.out.println("Empezando a crear usuario");
                                     User u = new User(name,surname,birth,email);
                                     System.out.println("Subiendo");
-                                    databaseReference.child(u.getName()).setValue(u);
+
+                                    //Using the UID for storing data into the database
+                                    databaseReference.child(auth.getCurrentUser().getUid()).setValue(u);
+
                                     startActivity(new Intent(SignupActivity.this,MainActivity.class));
                                     finish();
                                 }
