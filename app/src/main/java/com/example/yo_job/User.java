@@ -6,6 +6,8 @@ public class User {
     private String surname;
     private String date_of_birth;
     private String email;
+    //TODO Meter siguientes variables en construcor y base de datos
+    private float rating; //Carpeta en base de datos a parte con todos los ratings de cada usuario
 
     public User(String name, String surname, String date_of_birth, String email) {
         this.name = name;
