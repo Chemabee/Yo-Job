@@ -45,11 +45,12 @@ public class JobSearch extends AppCompatActivity {
 
         Query searchQuery = ref.orderByChild("title").startAt(i.getStringExtra("title")).endAt(i.getStringExtra("title")+"\uf8ff");
 
+
         FirebaseRecyclerAdapter<Job, JobsViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, JobsViewHolder>(
                 Job.class,
                 R.layout.list_layout,
                 JobsViewHolder.class,
-                ref
+                searchQuery
         ) {
             @Override
             protected void populateViewHolder(JobsViewHolder viewHolder, Job model, int position) {
