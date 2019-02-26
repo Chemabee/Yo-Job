@@ -16,7 +16,6 @@ public class SearchActivity extends AppCompatActivity {
     private CalendarView calendarV;
     private EditText salaryV;
     private EditText titleV;
-    private int salary;
 
     private LinkedList<Integer> date;
     @Override
