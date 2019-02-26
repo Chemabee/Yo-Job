@@ -3,10 +3,12 @@ package com.example.yo_job;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -78,6 +80,7 @@ public class PostAJobActivity extends AppCompatActivity {
                 DatabaseReference pushedPostRef = databaseReference.push();
                 String postId = pushedPostRef.getKey();
                 pushedPostRef.setValue(j);
+                Toast.makeText(PostAJobActivity.this,"Job posted correctly",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(PostAJobActivity.this, JobsActivity.class));
             }
         });
