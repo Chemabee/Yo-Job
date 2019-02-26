@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Clock;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -22,6 +25,7 @@ public class PostAJobActivity extends AppCompatActivity {
     private Button btnPostJob;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class PostAJobActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Jobs");
+
+        mAuth = FirebaseAuth.getInstance();
 
         calendarV = findViewById(R.id.calendarPostView);
         inputTitle = (EditText) findViewById(R.id.titleInput);
@@ -65,10 +71,13 @@ public class PostAJobActivity extends AppCompatActivity {
 
                 final String dateJob = date.get(0).toString() + "/" + date.get(1).toString() + "/" + date.get(2).toString();
 
-                Job j = new Job(dateJob, title, salary, duration, location, description);
-                /*databaseReference.child(title).setValue(j);*/
+                FirebaseUser user = mAuth.getCurrentUser();
+                Job j = new Job(dateJob, title, salary, duration, location, description,user.getUid());
+
+                //Getting push key
                 DatabaseReference pushedPostRef = databaseReference.push();
                 String postId = pushedPostRef.getKey();
+                pushedPostRef.setValue(j);
                 startActivity(new Intent(PostAJobActivity.this, JobsActivity.class));
             }
         });
