@@ -34,7 +34,7 @@ public class JobSearch extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         ref = db.getReference("Jobs");
 
-        ref.addValueEventListener
+        //ref.addValueEventListener();
 
         i = getIntent();
 
