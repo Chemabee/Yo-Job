@@ -27,7 +27,7 @@ public class JobSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_search);
 
-        mResultList = findViewById(R.id.result_list);
+        mResultList = findViewById(R.id.myRecycler);
         mResultList.setHasFixedSize(true);
         mResultList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -43,10 +43,9 @@ public class JobSearch extends AppCompatActivity {
 
     private void jobSearch(){
 
-        Toast.makeText(JobSearch.this,"Started Search",Toast.LENGTH_LONG).show();
+        Toast.makeText(JobSearch.this,"Search Started...",Toast.LENGTH_LONG).show();
 
         Query searchQuery = ref.orderByChild("title").startAt(i.getStringExtra("title")).endAt(i.getStringExtra("title")+"\uf8ff");
-
 
         FirebaseRecyclerAdapter<Job, JobsViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, JobsViewHolder>(
                 Job.class,
@@ -81,4 +80,5 @@ public class JobSearch extends AppCompatActivity {
         }
 
     }
+
 }
