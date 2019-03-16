@@ -17,7 +17,7 @@ public class SearchActivity extends AppCompatActivity {
     private EditText salaryV;
     private EditText titleV;
 
-    private LinkedList<Integer> date;
+    private String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class SearchActivity extends AppCompatActivity {
         calendarV = findViewById(R.id.searchCalendar);
         salaryV = findViewById(R.id.salaryInput);
         titleV = findViewById(R.id.titleInput);
-        date = new LinkedList<>();
+        date = "";
 
         calendarV.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -34,16 +34,16 @@ public class SearchActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 //Saving date
-                date.clear();
-                date.add(dayOfMonth);
-                date.add(month+1);
-                date.add(year);
+                date="";
+                date+=dayOfMonth+"/";
+                date+=(month+1)+"/";
+                date+=year;
             }
         });
     }
 
     public void search (View v) {
-        Intent s = new Intent(this, JobSearch.class);
+        Intent s = new Intent(this, JobSearch1.class);
         //Inserting data into Intent
         s.putExtra("salary",salaryV.getText().toString());
         s.putExtra("date",date.toString());

@@ -28,6 +28,7 @@
         <activity android:name=".MessagesActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".PostAJobActivity" />
+        <activity android:name=".JobSearch1"/>
         <activity
             android:name=".SearchActivity"
             android:label="title_activity_search" />

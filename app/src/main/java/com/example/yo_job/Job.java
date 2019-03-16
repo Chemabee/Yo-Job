@@ -1,13 +1,24 @@
 package com.example.yo_job;
 
-public class Job {
+import com.google.firebase.database.PropertyName;
 
+import java.io.Serializable;
+
+public class Job implements Serializable {
+
+    @PropertyName("date")
     private String date;
+    @PropertyName("title")
     private String title;
+    @PropertyName("salary")
     private String salary;
+    @PropertyName("duration")
     private String duration;
+    @PropertyName("location")
     private String location;
+    @PropertyName("description")
     private String description;
+    @PropertyName("employer")
     private String employer;
 
     public Job(){
