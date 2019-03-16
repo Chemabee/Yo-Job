@@ -42,7 +42,7 @@ public class JobDescriptionActivity extends AppCompatActivity {
         i = getIntent();
         final Job j = (Job) i.getSerializableExtra("job");
 
-        salaryV.setText("Salary: "+j.getSalary());
+        salaryV.setText("Salary: "+j.getSalary()+"£");
         salaryV.setTypeface(null, Typeface.BOLD);
 
         durationV.setText("Duration: "+j.getDuration()+" hours.");
@@ -61,9 +61,8 @@ public class JobDescriptionActivity extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     for(DataSnapshot ds : dataSnapshot.getChildren()) {
                         temp[0] = (User) ds.getValue(User.class);
-                        Toast.makeText(JobDescriptionActivity.this, temp[0].getName(),Toast.LENGTH_LONG).show();
                         if (temp[0].getName() != null)
-                            name.setText(temp[0].getName());
+                            name.setText("Name of Employer: "+temp[0].getName());
                         else
                             name.setText("User not found...");
                         name.setTypeface(null, Typeface.BOLD_ITALIC);

@@ -2,14 +2,10 @@ package com.example.yo_job;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
 import android.widget.EditText;
-
-import java.util.Calendar;
-import java.util.LinkedList;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -43,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void search (View v) {
-        Intent s = new Intent(this, JobSearch1.class);
+        Intent s = new Intent(this, JobSearch.class);
         //Inserting data into Intent
         s.putExtra("salary",salaryV.getText().toString());
         s.putExtra("date",date.toString());

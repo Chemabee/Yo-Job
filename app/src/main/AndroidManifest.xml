@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".JobSearch" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -28,7 +27,7 @@
         <activity android:name=".MessagesActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".PostAJobActivity" />
-        <activity android:name=".JobSearch1"/>
+        <activity android:name=".JobSearch"/>
         <activity
             android:name=".SearchActivity"
             android:label="title_activity_search" />

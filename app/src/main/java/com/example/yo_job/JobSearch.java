@@ -1,84 +1,70 @@
 package com.example.yo_job;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 
 public class JobSearch extends AppCompatActivity {
 
-    private RecyclerView mResultList;
-    private FirebaseDatabase db;
-    private DatabaseReference ref;
-    private Intent i;
+    DatabaseReference ref;
+    RecyclerView recyclerView;
+    ArrayList<Job> list;
+    MyAdapter adapter;
+    Intent i;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_search);
 
-        mResultList = findViewById(R.id.myRecycler);
-        mResultList.setHasFixedSize(true);
-        mResultList.setLayoutManager(new LinearLayoutManager(this));
 
-        db = FirebaseDatabase.getInstance();
-        ref = db.getReference("Jobs");
+        recyclerView = (RecyclerView) findViewById(R.id.myRecycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        list = new ArrayList<Job>();
 
-        //ref.addValueEventListener();
-
+        ref = FirebaseDatabase.getInstance().getReference().child("Jobs");
         i = getIntent();
-
-        jobSearch();
-    }
-
-    private void jobSearch(){
-
-        Toast.makeText(JobSearch.this,"Search Started...",Toast.LENGTH_LONG).show();
-
-        Query searchQuery = ref.orderByChild("title").startAt(i.getStringExtra("title")).endAt(i.getStringExtra("title")+"\uf8ff");
-
-        FirebaseRecyclerAdapter<Job, JobsViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, JobsViewHolder>(
-                Job.class,
-                R.layout.list_layout,
-                JobsViewHolder.class,
-                searchQuery
-        ) {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
-            protected void populateViewHolder(JobsViewHolder viewHolder, Job model, int position) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                    Job j = dataSnapshot1.getValue(Job.class);
+                    list.add(j);
+                }
 
-                viewHolder.setDetails(model.getTitle(),model.getDate(),model.getSalary());
+                String title = i.getStringExtra("title");
+                String date = i.getStringExtra("date");
+                String salary = i.getStringExtra("salary");
+                ArrayList<Job> temp = new ArrayList<Job>(list);
+                for(Job j : list){
+                    if(!date.equals("") && !j.getDate().equals(date))
+                        temp.remove(j);
+                    if(!title.equals("") && temp.contains(j) && !j.getTitle().contains(title))
+                        temp.remove(j);
+                    if(!salary.equals("") && temp.contains(j) && !j.getSalary().equals(salary))
+                        temp.remove(j);
+                }
+                adapter = new MyAdapter(JobSearch.this, temp);
+                recyclerView.setAdapter(adapter);
             }
-        };
-        mResultList.setAdapter(firebaseRecyclerAdapter);
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(JobSearch.this, "Ooops... Something is wrong", Toast.LENGTH_SHORT);
+            }
+        });
     }
-
-    public static class JobsViewHolder extends RecyclerView.ViewHolder{
-        View nView;
-
-        public JobsViewHolder(View itemView){
-            super(itemView);
-            nView = itemView;
-        }
-        public void setDetails(String title, String duration, String salary){
-            TextView t = (TextView) nView.findViewById(R.id.title_list);
-            TextView dur = (TextView) nView.findViewById(R.id.duration_list);
-            TextView sal = (TextView) nView.findViewById(R.id.salary_list);
-
-            t.setText(title);
-            dur.setText(duration);
-            sal.setText(salary);
-        }
-
-    }
-
 }
