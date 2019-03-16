@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,17 +43,26 @@ public class ChatActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+    private FirebaseAuth auth;
+    private String receiverID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null)
+            receiverID = bundle.getString("receiverID");
+        else
+            finish();
+
         profilePhoto = (CircleImageView) findViewById(R.id.profilePhoto);
         name = (TextView) findViewById(R.id.chatName);
         rvMessages = (RecyclerView) findViewById(R.id.rvMessages);
         txtMessages = (EditText) findViewById(R.id.txtMessage);
         btnSend = (Button) findViewById(R.id.btnSend);
+        auth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("Chat");
@@ -65,7 +75,7 @@ public class ChatActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference.push().setValue(new MessageSend(txtMessages.getText().toString(), name.getText().toString(), ServerValue.TIMESTAMP));
+                newMessage(auth.getCurrentUser().getUid(), receiverID, new MessageSend(txtMessages.getText().toString(), name.getText().toString(), ServerValue.TIMESTAMP));
                 txtMessages.setText("");
             }
         });
@@ -78,7 +88,12 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        databaseReference.addChildEventListener(new ChildEventListener() {
+        FirebaseDatabase.
+                getInstance().
+                getReference("Chat").
+                child(auth.getCurrentUser().getUid()).
+                child(receiverID).
+                addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 MessageReceive m = dataSnapshot.getValue(MessageReceive.class);
@@ -106,6 +121,13 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void newMessage(String senderID, String receiverID, Message message) {
+        DatabaseReference senderReference = databaseReference.child(senderID).child(receiverID);
+        DatabaseReference receiverReference = databaseReference.child(receiverID).child(senderID);
+        senderReference.push().setValue(message);
+        receiverReference.push().setValue(message);
     }
 
     private void setScrollBar() {
