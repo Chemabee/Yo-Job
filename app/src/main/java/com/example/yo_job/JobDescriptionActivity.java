@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +21,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class JobDescriptionActivity extends AppCompatActivity {
 
-    TextView salaryV;
-    TextView durationV;
-    TextView dateV;
-    TextView descriptionV;
-    TextView name;
+    private TextView salaryV;
+    private TextView durationV;
+    private TextView dateV;
+    private TextView descriptionV;
+    private TextView name;
 
-    DatabaseReference ref;
+    private DatabaseReference ref;
 
-    Intent i;
+    private Intent i;
+    private Job j;
+    private String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +45,7 @@ public class JobDescriptionActivity extends AppCompatActivity {
         name = findViewById(R.id.textView7);
 
         i = getIntent();
-        final Job j = (Job) i.getSerializableExtra("job");
+        j = (Job) i.getSerializableExtra("job");
 
         salaryV.setText("Salary: "+j.getSalary()+"£");
         salaryV.setTypeface(null, Typeface.BOLD);
@@ -76,5 +81,13 @@ public class JobDescriptionActivity extends AppCompatActivity {
                 Toast.makeText(JobDescriptionActivity.this,"ERROR in Query",Toast.LENGTH_LONG).show();
             }
         });
+        userName = temp[0].getName();
+    }
+
+    public void apply(View v) {
+        Intent a = new Intent(this, ChatActivity.class);
+        a.putExtra("receiverID", j.getEmployer());
+        a.putExtra("receiverName", userName);
+        startActivity(a);
     }
 }

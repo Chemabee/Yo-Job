@@ -33,8 +33,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessageHolder> {
 
     @Override
     public void onBindViewHolder(MessageHolder holder, int position) {
-        holder.getName().setText((listMessage.get(position).getName()));
-        holder.getMessage().setText((listMessage.get(position).getMessage()));
+        holder.getName().setText(listMessage.get(position).getName());
+        holder.getMessage().setText(listMessage.get(position).getMessage());
         Long timeCode = listMessage.get(position).getTime();
         Date d = new Date(timeCode);
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");

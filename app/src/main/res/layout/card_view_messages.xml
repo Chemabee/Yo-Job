@@ -22,7 +22,7 @@
                     android:id="@+id/messageName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gonzalo"
+                    android:text="User"
                     android:layout_weight="1"
                     android:textStyle="bold"/>
                 <TextView

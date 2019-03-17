@@ -45,6 +45,7 @@ public class ChatActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
     private String receiverID;
+    private String receiverName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +53,10 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null)
+        if (bundle != null) {
             receiverID = bundle.getString("receiverID");
-        else
+            receiverName = bundle.getString("receiverName");
+        } else
             finish();
 
         profilePhoto = (CircleImageView) findViewById(R.id.profilePhoto);
@@ -63,6 +65,8 @@ public class ChatActivity extends AppCompatActivity {
         txtMessages = (EditText) findViewById(R.id.txtMessage);
         btnSend = (Button) findViewById(R.id.btnSend);
         auth = FirebaseAuth.getInstance();
+
+        name.setText(receiverName);
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("Chat");

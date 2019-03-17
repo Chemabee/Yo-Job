@@ -21,7 +21,7 @@ public class JobsActivity extends AppCompatActivity {
 
     //Post a job button
     public void post (View v){
-        Intent postI = new Intent(this, ChatActivity.class);
+        Intent postI = new Intent(this, PostAJobActivity.class);
         startActivity(postI);
     }
 }
