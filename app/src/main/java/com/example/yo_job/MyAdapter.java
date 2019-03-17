@@ -5,22 +5,17 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    Context context;
-    ArrayList<Job> jobs;
+    private Context context;
+    private ArrayList<Job> jobs;
 
     public MyAdapter (Context c, ArrayList<Job> j){
         context = c;
@@ -64,8 +59,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titleV, durationV, salaryV;
-        View layout;
+        private TextView titleV, durationV, salaryV;
+        private View layout;
 
         public MyViewHolder(View itemView) {
             super(itemView);

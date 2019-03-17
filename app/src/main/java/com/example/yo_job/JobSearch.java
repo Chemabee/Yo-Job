@@ -19,11 +19,11 @@ import java.util.ArrayList;
 
 public class JobSearch extends AppCompatActivity {
 
-    DatabaseReference ref;
-    RecyclerView recyclerView;
-    ArrayList<Job> list;
-    MyAdapter adapter;
-    Intent i;
+    private DatabaseReference ref;
+    private RecyclerView recyclerView;
+    private ArrayList<Job> list;
+    private MyAdapter adapter;
+    private Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
