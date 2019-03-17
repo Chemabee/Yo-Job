@@ -66,9 +66,10 @@ public class JobDescriptionActivity extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     for(DataSnapshot ds : dataSnapshot.getChildren()) {
                         temp[0] = (User) ds.getValue(User.class);
-                        if (temp[0].getName() != null)
-                            name.setText("Name of Employer: "+temp[0].getName());
-                        else
+                        if (temp[0].getName() != null) {
+                            name.setText("Name of Employer: " + temp[0].getName());
+                            userName = temp[0].getName();
+                        } else
                             name.setText("User not found...");
                         name.setTypeface(null, Typeface.BOLD_ITALIC);
 
@@ -81,7 +82,6 @@ public class JobDescriptionActivity extends AppCompatActivity {
                 Toast.makeText(JobDescriptionActivity.this,"ERROR in Query",Toast.LENGTH_LONG).show();
             }
         });
-        userName = temp[0].getName();
     }
 
     public void apply(View v) {

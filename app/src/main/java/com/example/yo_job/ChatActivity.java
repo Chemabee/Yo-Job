@@ -79,7 +79,7 @@ public class ChatActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newMessage(auth.getCurrentUser().getUid(), receiverID, new MessageSend(txtMessages.getText().toString(), name.getText().toString(), ServerValue.TIMESTAMP));
+                newMessage(auth.getCurrentUser().getUid(), receiverID, new MessageSend(txtMessages.getText().toString(), auth.getCurrentUser().getDisplayName(), ServerValue.TIMESTAMP));
                 txtMessages.setText("");
             }
         });
