@@ -1,39 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context=".Activities.SignupActivity">
 
     <TextView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="69dp"
-        android:layout_marginLeft="69dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
+        android:layout_gravity="center"
         android:text="@string/app_name"
-        android:textSize="80sp"
-        app:fontFamily="@font/kite_one"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="80sp" />
 
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,14 +130,9 @@
                 android:id="@+id/sign_up"
                 android:layout_width="260dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="75dp"
-                android:layout_marginLeft="75dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="76dp"
-                android:layout_marginRight="76dp"
-                android:layout_marginBottom="51dp"
                 android:background="@drawable/button_shape"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:padding="8dp"
                 android:text="@string/sign_up"
                 android:textSize="24sp" />
@@ -156,4 +140,4 @@
         </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
