@@ -1,11 +1,11 @@
-package com.example.yo_job;
+package com.example.yo_job.Activities;
 
 import android.content.Intent;
-import android.content.SyncStatusObserver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.yo_job.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {

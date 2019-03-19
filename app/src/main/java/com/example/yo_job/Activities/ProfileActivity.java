@@ -1,7 +1,9 @@
-package com.example.yo_job;
+package com.example.yo_job.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.yo_job.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

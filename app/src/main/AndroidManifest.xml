@@ -14,25 +14,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.ChatActivity"></activity>
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JobDescriptionActivity" />
-        <activity android:name=".MessagesActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PostAJobActivity" />
-        <activity android:name=".JobSearch"/>
+        <activity android:name=".Activities.JobDescriptionActivity" />
+        <activity android:name=".Activities.MessagesActivity" />
+        <activity android:name=".Activities.ProfileActivity" />
+        <activity android:name=".Activities.PostAJobActivity" />
+        <activity android:name=".Activities.JobSearch"/>
         <activity
-            android:name=".SearchActivity"
+            android:name=".Activities.SearchActivity"
             android:label="title_activity_search" />
-        <activity android:name=".JobsActivity" />
-        <activity android:name=".SignupActivity" />
+        <activity android:name=".Activities.JobsActivity" />
+        <activity android:name=".Activities.SignupActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

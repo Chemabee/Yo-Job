@@ -1,4 +1,4 @@
-package com.example.yo_job;
+package com.example.yo_job.Activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.yo_job.JobSearch.MyAdapter;
+import com.example.yo_job.SimpleClasses.Job;
+import com.example.yo_job.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

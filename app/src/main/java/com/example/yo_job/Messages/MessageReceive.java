@@ -1,4 +1,6 @@
-package com.example.yo_job;
+package com.example.yo_job.Messages;
+
+import com.example.yo_job.SimpleClasses.Message;
 
 public class MessageReceive extends Message {
 

@@ -1,4 +1,4 @@
-package com.example.yo_job;
+package com.example.yo_job.JobSearch;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.yo_job.Activities.JobDescriptionActivity;
+import com.example.yo_job.SimpleClasses.Job;
+import com.example.yo_job.R;
 
 import java.util.ArrayList;
 

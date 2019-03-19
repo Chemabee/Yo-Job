@@ -1,4 +1,4 @@
-package com.example.yo_job;
+package com.example.yo_job.SimpleClasses;
 
 public class ChatRoom {
     private String name;

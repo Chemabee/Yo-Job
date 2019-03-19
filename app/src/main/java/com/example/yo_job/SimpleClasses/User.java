@@ -1,4 +1,4 @@
-package com.example.yo_job;
+package com.example.yo_job.SimpleClasses;
 
 import com.google.firebase.database.PropertyName;
 

@@ -1,4 +1,4 @@
-package com.example.yo_job;
+package com.example.yo_job.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
 import android.widget.EditText;
+
+import com.example.yo_job.R;
 
 public class SearchActivity extends AppCompatActivity {
 
