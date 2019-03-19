@@ -24,4 +24,5 @@ public class JobsActivity extends AppCompatActivity {
         Intent postI = new Intent(this, MessagesActivity.class);
         startActivity(postI);
     }
+
 }
