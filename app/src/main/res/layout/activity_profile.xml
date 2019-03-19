@@ -69,6 +69,26 @@
                 android:textColor="@color/black"
                 android:textSize="26dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:text="Description:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/prof_desc"
+                android:layout_width="300dp"
+                android:layout_height="285dp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_text_box"
+                android:paddingLeft="15dp"
+                android:paddingTop="2dp"
+                android:paddingRight="15dp"
+                android:text="Here, a brief description is given."
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
         </LinearLayout>
     </ScrollView>
 
