@@ -1,5 +1,7 @@
 package com.example.yo_job.SimpleClasses;
 
+import android.support.v4.content.PermissionChecker;
+
 import com.google.firebase.database.PropertyName;
 
 import java.io.Serializable;
@@ -14,9 +16,10 @@ public class User implements Serializable {
     private String date_of_birth;
     @PropertyName("email")
     private String email;
-    //TODO Meter siguientes variables en construcor y base de datos
+    @PropertyName("rating")
     private float rating; //Carpeta en base de datos a parte con todos los ratings de cada usuario
-
+    @PropertyName("description")
+    private String description;
 
     public User(){
 
@@ -26,6 +29,7 @@ public class User implements Serializable {
         this.surname = surname;
         this.date_of_birth = date_of_birth;
         this.email = email;
+        this.description = "";
     }
 
     public String getName() {
@@ -66,5 +70,13 @@ public class User implements Serializable {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
