@@ -110,6 +110,20 @@
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
+            <EditText
+                android:id="@+id/edit_desc"
+                android:layout_width="300dp"
+                android:layout_height="285dp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_text_box"
+                android:paddingLeft="15dp"
+                android:paddingTop="2dp"
+                android:paddingRight="15dp"
+                android:hint="Edit Description"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                android:textSize="18dp" />
+
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
@@ -117,7 +131,18 @@
                 android:text="Edit"
                 android:layout_gravity="center"
                 android:background="@drawable/input_text_box"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:onClick="editClick"/>
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_gravity="center"
+                android:background="@drawable/input_text_box"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:onClick="saveClick"/>
 
         </LinearLayout>
     </ScrollView>
