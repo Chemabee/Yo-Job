@@ -2,6 +2,7 @@ package com.example.yo_job.Activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import com.example.yo_job.Chat.ChatsAdapter;
 import com.example.yo_job.R;
 import com.example.yo_job.SimpleClasses.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,45 +51,92 @@ public class MessagesActivity extends AppCompatActivity {
 
         ref = FirebaseDatabase.getInstance().getReference("Chat").child(auth.getCurrentUser().getUid());
         i = getIntent();
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                    String id = dataSnapshot1.getKey();
-                    list.add(id);
-                }
-
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                final String id = dataSnapshot.getKey();
                 auxRef = FirebaseDatabase.getInstance().getReference("User");
-                auxRef.addValueEventListener(new ValueEventListener() {
+                auxRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                            String uid = dataSnapshot1.getKey();
-                            User u = dataSnapshot1.getValue(User.class);
-                            String uname = u.getName();
-                            Pair<String, String> p = new Pair<>(uid, uname);
-                            userList.add(p);
+                        if(dataSnapshot.exists()){
+                            for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                                if (id == ds.getKey()) {
+                                    User u = ds.getValue(User.class);
+                                    adapter.addChat(new ChatRoom(u.getName(), ""));
+                                }
+
+                            }
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(MessagesActivity.this, "Ooops... Something is wrong", Toast.LENGTH_SHORT);
+                        Toast.makeText(MessagesActivity.this,"ERROR in Query",Toast.LENGTH_LONG).show();
                     }
                 });
+            }
 
-                for (Pair<String, String> p : userList) {
-                    for (String id : list) {
-                        if (p.first.equals(id))
-                            adapter.addChat(new ChatRoom(p.second, ""));
-                    }
-                }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MessagesActivity.this, "Ooops... Something is wrong", Toast.LENGTH_SHORT);
+
             }
         });
+
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+//                    String id = dataSnapshot1.getKey();
+//                    list.add(id);
+//                }
+//
+//                auxRef = FirebaseDatabase.getInstance().getReference("User");
+//                auxRef.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+//                            String uid = dataSnapshot1.getKey();
+//                            User u = dataSnapshot1.getValue(User.class);
+//                            String uname = u.getName();
+//                            Pair<String, String> p = new Pair<>(uid, uname);
+//                            userList.add(p);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//                        Toast.makeText(MessagesActivity.this, "Ooops... Something is wrong", Toast.LENGTH_SHORT);
+//                    }
+//                });
+//
+//                for (Pair<String, String> p : userList) {
+//                    for (String id : list) {
+//                        if (p.first.equals(id))
+//                            adapter.addChat(new ChatRoom(p.second, ""));
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Toast.makeText(MessagesActivity.this, "Ooops... Something is wrong", Toast.LENGTH_SHORT);
+//            }
+//        });
     }
 }
