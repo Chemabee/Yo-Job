@@ -97,7 +97,6 @@ public class MessagesActivity extends AppCompatActivity {
         });
 
         rvChats.setAdapter(adapter);
-
 //        ref.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
