@@ -63,7 +63,7 @@ public class MessagesActivity extends AppCompatActivity {
                         if(dataSnapshot.exists()){
                             for(DataSnapshot ds : dataSnapshot.getChildren()) {
                                 User u = ds.getValue(User.class);
-                                adapter.addChat(new ChatRoom(u.getName(), ""));
+                                adapter.addChat(new ChatRoom(u.getName(), "", ds.getKey()));
                             }
                         }
                     }
