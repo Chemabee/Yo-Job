@@ -20,16 +20,20 @@ public class User implements Serializable {
     private float rating; //Carpeta en base de datos a parte con todos los ratings de cada usuario
     @PropertyName("description")
     private String description;
+    @PropertyName("image")
+    private String imageUrl;
 
     public User(){
 
     }
+
     public User(String name, String surname, String date_of_birth, String email) {
         this.name = name;
         this.surname = surname;
         this.date_of_birth = date_of_birth;
         this.email = email;
         this.description = "";
+        this.imageUrl = "";
     }
 
     public String getName() {
@@ -78,5 +82,12 @@ public class User implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

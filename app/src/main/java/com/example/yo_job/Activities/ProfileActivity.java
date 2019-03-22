@@ -1,5 +1,7 @@
 package com.example.yo_job.Activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,12 +24,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView name, date, email, desc;
     private EditText descE;
     private RatingBar rb;
     private Button btnEdit, btnSave;
+    private ImageView image;
 
     private DatabaseReference ref;
     private FirebaseAuth auth;
@@ -44,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
         desc = findViewById(R.id.prof_desc);
 
         descE = findViewById(R.id.edit_desc);
+        image = findViewById(R.id.imageView2);
 
         btnEdit = findViewById(R.id.button2);
         btnSave = findViewById(R.id.button3);
@@ -80,6 +89,22 @@ public class ProfileActivity extends AppCompatActivity {
                         else
                             desc.setText("Description not found");
 
+                        //TODO añadir imagen
+//                        if(temp[0].getImageUrl() != "" && temp[0].getImageUrl() != null){
+//                            URL url = null;
+//                            try {
+//                                url = new URL(temp[0].getImageUrl());
+//                            } catch (MalformedURLException e) {
+//                                e.printStackTrace();
+//                            }
+//                            Bitmap bmp = null;
+//                            try {
+//                                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                            image.setImageBitmap(bmp);
+//                        }
                     }
                 }
             }
