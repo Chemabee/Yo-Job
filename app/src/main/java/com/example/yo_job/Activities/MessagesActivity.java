@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -43,7 +44,6 @@ public class MessagesActivity extends AppCompatActivity {
 
         rvChats = (RecyclerView) findViewById(R.id.list_of_chats);
         rvChats.setLayoutManager(new LinearLayoutManager(this));
-        rvChats.setAdapter(adapter);
         list = new ArrayList<>();
         userList = new ArrayList<>();
         adapter = new ChatsAdapter(this);
@@ -55,17 +55,15 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 final String id = dataSnapshot.getKey();
-                auxRef = FirebaseDatabase.getInstance().getReference("User");
-                auxRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                auxRef = FirebaseDatabase.getInstance().getReference("Users");
+                Query getUser = auxRef.orderByKey().equalTo(id);
+                getUser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists()){
                             for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                                if (id == ds.getKey()) {
-                                    User u = ds.getValue(User.class);
-                                    adapter.addChat(new ChatRoom(u.getName(), ""));
-                                }
-
+                                User u = ds.getValue(User.class);
+                                adapter.addChat(new ChatRoom(u.getName(), ""));
                             }
                         }
                     }
@@ -97,6 +95,8 @@ public class MessagesActivity extends AppCompatActivity {
 
             }
         });
+
+        rvChats.setAdapter(adapter);
 
 //        ref.addValueEventListener(new ValueEventListener() {
 //            @Override
