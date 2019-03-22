@@ -48,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:numStars="5"
-                android:rating="0.0" />
+                android:rating="2.5"
+                android:isIndicator="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,6 +67,26 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="xx/xx/xxxx"
+                android:textColor="@color/black"
+                android:textSize="26dp" />
+
+            <TextView
+                android:id="@+id/email_prof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:text="Email: "
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/EmailTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/input_text_box"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="test@test.com"
                 android:textColor="@color/black"
                 android:textSize="26dp" />
 
@@ -88,6 +109,15 @@
                 android:text="Here, a brief description is given."
                 android:textColor="@color/black"
                 android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_gravity="center"
+                android:background="@drawable/input_text_box"
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
     </ScrollView>
